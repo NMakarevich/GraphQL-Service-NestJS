@@ -21,8 +21,8 @@ export class AlbumsResolver {
   }
 
   @Query()
-  async albums() {
-    return this.albumsService.getAllAlbums();
+  async albums(@Args('limit') limit: number, @Args('offset') offset: number) {
+    return this.albumsService.getAllAlbums(limit, offset);
   }
 
   @Resolver()
