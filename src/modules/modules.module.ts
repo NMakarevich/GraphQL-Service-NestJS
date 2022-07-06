@@ -13,6 +13,8 @@ import { TracksResolver } from './tracks/resolvers/tracks.resolver';
 import { UsersResolver } from './users/resolvers/users.resolver';
 import { HttpModule } from '@nestjs/axios';
 import 'dotenv/config';
+import { FavouritesService } from './favourites/services/favourites.service';
+import { FavouritesResolver } from './favourites/resolvers/favourites.resolver';
 
 @Module({
   imports: [HttpModule],
@@ -20,12 +22,14 @@ import 'dotenv/config';
     AlbumsService,
     ArtistsService,
     BandsService,
+    FavouritesService,
     GenresService,
     TracksService,
     UsersService,
     AlbumsResolver,
     ArtistsResolver,
     BandsResolver,
+    FavouritesResolver,
     GenresResolver,
     TracksResolver,
     UsersResolver,
