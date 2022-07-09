@@ -28,7 +28,10 @@ export class TracksResolver {
   }
 
   @Query()
-  async tracks(@Args('limit') limit: number, @Args('offset') offset: number) {
+  async tracks(
+    @Args('limit', { defaultValue: 5 }) limit: number,
+    @Args('offset', { defaultValue: 0 }) offset: number,
+  ) {
     return this.tracksService.getAll(limit, offset);
   }
 
@@ -76,7 +79,7 @@ export class TracksResolver {
   @Mutation()
   async updateTrack(
     @Args('id') id: string,
-    @Args('updatedTrack') updatedTrack: UpdateTrackInterface,
+    @Args('track') updatedTrack: UpdateTrackInterface,
     @Context() context: any,
   ) {
     return this.tracksService.updateItem<UpdateTrackInterface>(

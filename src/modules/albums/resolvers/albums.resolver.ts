@@ -30,7 +30,10 @@ export class AlbumsResolver {
   }
 
   @Query()
-  async albums(@Args('limit') limit: number, @Args('offset') offset: number) {
+  async albums(
+    @Args('limit', { defaultValue: 5 }) limit: number,
+    @Args('offset', { defaultValue: 0 }) offset: number,
+  ) {
     return this.albumsService.getAll(limit, offset);
   }
 
@@ -89,7 +92,7 @@ export class AlbumsResolver {
   @Mutation()
   async updateAlbum(
     @Args('id') id: string,
-    @Args('updatedAlbum') updatedAlbum: UpdateAlbumInterface,
+    @Args('album') updatedAlbum: UpdateAlbumInterface,
     @Context() context: any,
   ) {
     return this.albumsService.updateItem<UpdateAlbumInterface>(
