@@ -2,7 +2,7 @@
 ***
 ## Installation service
 1. Clone repository
-2. Move to `develop` branch
+2. Move to `dev` branch
 3. Enter `npm install` in terminal
 
 ## Installation microservices
