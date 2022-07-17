@@ -10,6 +10,11 @@ export class UsersResolver {
     return this.usersService.getJWT(email, password);
   }
 
+  @Query()
+  async user(@Args('id') id: string) {
+    return this.usersService.getUser(id);
+  }
+
   @Mutation()
   async register(
     @Args('firstName') firstName: string,

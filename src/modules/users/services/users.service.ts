@@ -30,4 +30,11 @@ export class UsersService {
     );
     return { ...data, id: data._id };
   };
+
+  getUser = async (id: string) => {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.baseUrl}/${id}`,
+    );
+    return { ...data, id: data._id };
+  };
 }
