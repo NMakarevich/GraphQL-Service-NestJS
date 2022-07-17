@@ -12,10 +12,12 @@ import { ArtistsService } from '../../artists/services/artists.service';
 import { BandsService } from '../../bands/services/bands.service';
 import { GenresService } from '../../genres/services/genres.service';
 import { UpdateTrackInterface, NewTrackInterface } from '../trackInterface';
+import { AlbumsService } from '../../albums/services/albums.service';
 
 @Resolver('Track')
 export class TracksResolver {
   constructor(
+    private readonly albumsService: AlbumsService,
     private readonly tracksService: TracksService,
     private readonly artistsService: ArtistsService,
     private readonly bandsService: BandsService,
@@ -66,6 +68,13 @@ export class TracksResolver {
         return this.genresService.getById(id);
       }),
     );
+  }
+
+  @Resolver()
+  @ResolveField()
+  async album(@Parent() track) {
+    const { albumId } = track;
+    return this.albumsService.getById(albumId);
   }
 
   @Mutation()
