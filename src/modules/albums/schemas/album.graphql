@@ -28,6 +28,7 @@ input NewAlbumInput {
     bandsIds: [ID]
     trackIds: [ID]
     genresIds: [ID]
+    image: String
 }
 
 input AlbumInput {
@@ -37,6 +38,7 @@ input AlbumInput {
     bandsIds: [ID]
     trackIds: [ID]
     genresIds: [ID]
+    image: String
 }
 
 type Mutation {
