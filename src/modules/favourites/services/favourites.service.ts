@@ -14,7 +14,7 @@ export class FavouritesService {
         authorization,
       },
     });
-    return data;
+    return { ...data, id: data._id };
   };
 
   addToFavourites = async (type: string, id: string, context: any) => {
